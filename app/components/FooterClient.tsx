@@ -7,9 +7,9 @@ import Link from "next/link";
 
 export default function FooterClient() {
     return (
-        <footer className="w-full flex items-center">
-            <div className="w-full mx-auto bg-slate-800 pt-4 pb-4">
-                <div className="px-4 flex">
+        <footer className="w-full flex items-center bg-slate-200">
+            <div className="w-full mx-auto bg-slate-800 pt-6 pb-4 rounded-t-2xl">
+                <div className="px-6 flex">
                     <div className="border-b border-secondary pb-5 w-full">
                         <div className="mb-5">
                             <h1 className="font-poppins font-semibold mb-3 text-xl">LapCare Indonesia</h1>
@@ -21,15 +21,15 @@ export default function FooterClient() {
                         </div>
                         <div className="flex mb-3">
                             <Image src={phone} alt="phone" className="w-[25px]" />
-                            <h1 className="font-poppins ml-1.5 text-secondary">+62 895 4032 74420</h1>
+                            <h1 className="font-poppins ml-1.5 text-secondary">+62 XXX XXXX XXXXX</h1>
                         </div>
                         <div className="flex">
                             <Image src={mail} alt="mail" className="w-[25px]" />
-                            <h1 className="font-poppins ml-1.5 text-secondary">support@lapcare.com</h1>
+                            <h1 className="font-poppins ml-1.5 text-secondary">XXXXXXX@XXXXXXX.com</h1>
                         </div>
                     </div>
                 </div>
-                <div className="px-4 flex">
+                <div className="px-6 flex">
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 border-b border-secondary w-full pt-5 pb-5">
                         <div className="">
                             <h1 className="font-poppins mb-5 text-sm text-white font-semibold">Product</h1>
@@ -58,7 +58,7 @@ export default function FooterClient() {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col-reverse px-4 pt-5 justify-center lg:justify-between items-center lg:flex-row">
+                <div className="flex flex-col-reverse px-6 pt-5 justify-center lg:justify-between items-center lg:flex-row">
                     <div className="flex">
                         <h1 className="font-poppins text-sm text-secondary">© 2025 LapCare. All Right Reserved.</h1>
                     </div>
