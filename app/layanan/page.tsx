@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import NavbarClient from "../components/NavbarClient";
 import FooterClient from "../components/FooterClient";
 import Image from "next/image";
-import computer from "@/assets/guide/computer.svg";
-import laptop from "@/assets/guide/laptop.svg";
+import Hardware from "@/assets/layanan-kami/hardware-fixing.jpg"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Link from "next/link";
+import { format } from "path";
 
-export default function guidePage() {
+export default function layananPage() {
     useEffect(() => {
         AOS.init({
             duration: 800,
@@ -24,35 +24,87 @@ export default function guidePage() {
             <section className="bg-slate-200 pt-32 pb-16">
                 <div className="container mx-auto">
                     <div className="flex justify-center items-center mb-5">
-                        <h1 className="text-darkb font-poppins text-2xl 2xl:text-3xl font-semibold border-b pb-5 border-secondary" data-aos="fade-up">Layanan Kami</h1>
+                        <h1 className="text-darkb font-poppins text-2xl 2xl:text-3xl font-semibold border-b pb-5 border-secondary" data-aos="zoom-in">Layanan Kami</h1>
                     </div>
-                    <div className="flex justify-center items-center px-4" data-aos="fade-up">
-                        <p className="text-darkb text-center text-4xl xl:text-5xl font-poppins">Apa yang kami tawarkan?</p>
+                    <div className="flex justify-center items-center px-4">
+                        <p className="text-darkb text-center text-5xl xl:text-6xl font-poppins" data-aos="zoom-in">Apa yang kami tawarkan?</p>
                     </div>
                 </div>
             </section>
 
             <section className="bg-slate-200 pb-16">
-                <div className="container mx-auto">
-                    <div className="grid grid-cols-1 xl:grid-cols-2 px-8 gap-y-10 xl:gap-x-10">
-                        <Link href="/">
-                            <div className="relative border border-darkb flex-col justify-items-center py-5 xl:py-0 text-center rounded-xl bg-white/5 xl:hover:bg-darkb transition duration-300 group" data-aos="fade-up-right">
-                                <Image src={computer} alt="computer" className="w-[350px] xl:w-[400px] transition duration-300 xl:group-hover:scale-110" />
-                                <button className="border px-3 py-1 rounded-full font-poppins text-white text-lg bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300 cursor-pointer xl:hidden">Komputer</button>
-                                <div className="hidden xl:flex absolute inset-0 bg-black/50 items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 rounded-xl">
-                                    <p className="text-white font-semibold text-5xl font-poppins">Komputer</p>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link href="/">
-                            <div className="relative border border-darkb flex-col justify-items-center py-5 xl:py-0 text-center rounded-xl bg-white/5 xl:hover:bg-darkb transition duration-300 group" data-aos="fade-up-left">
-                                <Image src={laptop} alt="laptop" className="w-[350px] xl:w-[400px] transition duration-300 xl:group-hover:scale-110" />
-                                <button className="border px-3 py-1 rounded-full font-poppins text-white text-lg bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300 cursor-pointer xl:hidden">Laptop</button>
-                                <div className="hidden xl:flex absolute inset-0 bg-black/50 items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 rounded-xl">
-                                    <p className="text-white font-semibold text-5xl font-poppins">Laptop</p>
-                                </div>
-                            </div>
-                        </Link>
+                <div className="container mx-auto space-y-10 xl:space-y-20">
+                    {/* Mobile Card 1 */}
+                    <div className="xl:hidden flex flex-col xl:flex-row px-6 py-6 xl:py-0 items-center justify-center text-center xl:text-start gap-8">
+                        <div>
+                            <Image src={Hardware} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl"  />
+                        </div>
+                        <div className="xl:w-1/2">
+                            <h1 className="mb-5 className
+                            font-poppins font-semibold text-2xl xl:text-3xl text-darkb">Panduan Informasi Online Yang Lengkap</h1>
+                            <p className="mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab minus hic unde vel reiciendis suscipit iste, omnis id in velit perferendis repellendus autem a aliquid itaque illo quae, dignissimos alias quod corporis? Molestiae hic consequuntur cupiditate veniam. Vel quaerat eum aperiam enim, nostrum iste explicabo facere nam, quasi fuga cum.</p>
+                            <Link href="/guide" className="border px-4 py-2 rounded-full font-poppins text-white text-md bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300">Lihat Panduan</Link>
+                        </div>
+                    </div>
+                    {/* Desktop Card 1 */}
+                    <div className="hidden xl:flex flex-col xl:flex-row px-6 py-6 xl:py-0 items-center justify-center text-center xl:text-start gap-8" data-aos="fade-left">
+                        <div>
+                            <Image src={Hardware} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl"  />
+                        </div>
+                        <div className="xl:w-1/2">
+                            <h1 className="mb-5 className
+                            font-poppins font-semibold text-2xl xl:text-3xl text-darkb">Panduan Informasi Online Yang Lengkap</h1>
+                            <p className="mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab minus hic unde vel reiciendis suscipit iste, omnis id in velit perferendis repellendus autem a aliquid itaque illo quae, dignissimos alias quod corporis? Molestiae hic consequuntur cupiditate veniam. Vel quaerat eum aperiam enim, nostrum iste explicabo facere nam, quasi fuga cum.</p>
+                            <Link href="/guide" className="border px-4 py-2 rounded-full font-poppins text-white text-md bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300">Lihat Panduan</Link>
+                        </div>
+                    </div>
+                    {/* Mobile Card 2 */}
+                    <div className="xl:hidden flex flex-col xl:flex-row px-6 py-6 xl:py-0 items-center justify-center text-center xl:text-start gap-8">
+                        <div>
+                            <Image src={Hardware} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl" />
+                        </div>
+                        <div className="xl:w-1/2">
+                            <h1 className="mb-5 className
+                            font-poppins font-semibold text-2xl xl:text-3xl text-darkb">Layanan Konsultasi Chat Online Dengan Teknisi Kami</h1>
+                            <p className="mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab minus hic unde vel reiciendis suscipit iste, omnis id in velit perferendis repellendus autem a aliquid itaque illo quae, dignissimos alias quod corporis? Molestiae hic consequuntur cupiditate veniam. Vel quaerat eum aperiam enim, nostrum iste explicabo facere nam, quasi fuga cum.</p>
+                            <Link href="/guide" className="border px-4 py-2 rounded-full font-poppins text-white text-md bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300">Konsultasi Sekarang</Link>
+                        </div>
+                    </div>
+                    {/* Desktop Card 2 */}
+                    <div className="hidden xl:flex flex-col xl:flex-row px-6 py-6 xl:py-0 items-center justify-center text-center xl:text-start gap-8" data-aos="fade-right">
+                        <div className="xl:w-1/2">
+                            <h1 className="mb-5 className
+                            font-poppins font-semibold text-2xl xl:text-3xl text-darkb">Layanan Konsultasi Chat Online Dengan Teknisi Kami</h1>
+                            <p className="mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab minus hic unde vel reiciendis suscipit iste, omnis id in velit perferendis repellendus autem a aliquid itaque illo quae, dignissimos alias quod corporis? Molestiae hic consequuntur cupiditate veniam. Vel quaerat eum aperiam enim, nostrum iste explicabo facere nam, quasi fuga cum.</p>
+                            <Link href="/" className="border px-4 py-2 rounded-full font-poppins text-white text-md bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300">Konsultasi Sekarang</Link>
+                        </div>
+                        <div>
+                            <Image src={Hardware} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl" />
+                        </div>
+                    </div>
+                    {/* Mobile Card 3 */}
+                    <div className="xl:hidden flex flex-col xl:flex-row px-6 py-6 xl:py-0 items-center justify-center text-center xl:text-start gap-8">
+                        <div>
+                            <Image src={Hardware} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl" />
+                        </div>
+                        <div className="xl:w-1/2">
+                            <h1 className="mb-5 className
+                            font-poppins font-semibold text-2xl xl:text-3xl text-darkb">Teknisi Datang Ke Rumah Anda</h1>
+                            <p className="mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab minus hic unde vel reiciendis suscipit iste, omnis id in velit perferendis repellendus autem a aliquid itaque illo quae, dignissimos alias quod corporis? Molestiae hic consequuntur cupiditate veniam. Vel quaerat eum aperiam enim, nostrum iste explicabo facere nam, quasi fuga cum.</p>
+                            <Link href="/guide" className="border px-4 py-2 rounded-full font-poppins text-white text-md bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300">Panggil Teknisi</Link>
+                        </div>
+                    </div>
+                    {/* Desktop Card 3 */}
+                    <div className="hidden xl:flex flex-col xl:flex-row px-6 py-6 xl:py-0 items-center justify-center text-center xl:text-start gap-8" data-aos="fade-left">
+                        <div>
+                            <Image src={Hardware} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl" />
+                        </div>
+                        <div className="xl:w-1/2">
+                            <h1 className="mb-5 className
+                            font-poppins font-semibold text-2xl xl:text-3xl text-darkb">Teknisi Datang Ke Rumah Anda</h1>
+                            <p className="mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab minus hic unde vel reiciendis suscipit iste, omnis id in velit perferendis repellendus autem a aliquid itaque illo quae, dignissimos alias quod corporis? Molestiae hic consequuntur cupiditate veniam. Vel quaerat eum aperiam enim, nostrum iste explicabo facere nam, quasi fuga cum.</p>
+                            <Link href="/" className="border px-4 py-2 rounded-full font-poppins text-white text-md bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300">Panggil Teknisi</Link>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -209,7 +209,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center justify-center mt-8" data-aos="zoom-in-up">
-            <Link href="/" className="text-darkb border px-6 py-2 rounded-full font-poppins bg-transparent border-darkb shadow-md hover:shadow-2xl hover:bg-primary hover:text-white hover:border-primary transition duration-300 cursor-pointer">Tulis Ulasan Anda →</Link>
+            <Link href="/ulasan" className="text-darkb border px-6 py-2 rounded-full font-poppins bg-transparent border-darkb shadow-md hover:shadow-2xl hover:bg-primary hover:text-white hover:border-primary transition duration-300 cursor-pointer">Tulis Ulasan Anda →</Link>
           </div>
         </div>
       </section>
