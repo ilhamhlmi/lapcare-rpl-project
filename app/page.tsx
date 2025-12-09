@@ -23,7 +23,7 @@ export default function Home() {
   useEffect(() => {
     AOS.init({
       duration: 800,
-      once: true,     
+      once: true,
     });
   }, []);
 
@@ -89,11 +89,11 @@ export default function Home() {
       </section>
 
       <section id="faq" className="w-full flex items-center bg-slate-200 pt-16 pb-16 px-4 lg:px-6">
-        <div className="container mx-auto bg-gradient-to-tl from-[#1d293d] via-[#23385e] to-[#3b82f6] border-transparent rounded-2xl pt-12 pb-12" data-aos="fade-up">
-          <div className="flex justify-center items-center" data-aos="fade-up">
+        <div className="container mx-auto bg-gradient-to-tl from-[#1d293d] via-[#23385e] to-[#3b82f6] border-secondary border rounded-2xl pt-12 pb-12" data-aos="fade-up">
+          <div className="flex justify-center items-center">
             <h1 className="font-poppins text-3xl 2xl:text-4xl text-white border-b pb-5 border-secondary font-semibold text-center max-w-[300px] lg:max-w-none mb-8">Pertanyaan Umum Dari Pengguna</h1>
           </div>
-          <div className="bg-white/5 shadow-lg backdrop-blur-md w-[350px] lg:w-3xl 2xl:w-4xl flex-col justify-items-center mx-auto rounded-lg border border-secondary text-center divide-y divide-white mb-8 text-white" data-aos="fade-up">
+          <div className="bg-white/5 shadow-lg backdrop-blur-md w-[350px] lg:w-3xl 2xl:w-4xl flex-col justify-items-center mx-auto rounded-lg border border-secondary text-center divide-y divide-white mb-8 text-white">
             <details className="py-4 w-full border-secondary">
               <summary className="text-lg font-poppins lg:text-xl 2xl:text-2xl cursor-pointer">Mengapa Laptop Saya Terasa Lambat atau Lemot?</summary>
               <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
@@ -123,7 +123,7 @@ export default function Home() {
               <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
             </details>
           </div>
-          <div className="flex justify-center" data-aos="fade-up">
+          <div className="flex justify-center">
             <h3 className="font-poppins text-sm lg:text-md text-white">Punya Pertanyaan Lain? <span className="underline text-white"><Link href="/">Hubungi Kami</Link></span></h3>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function Home() {
             <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
               <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
               <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Muhammad Ilham Hilmi</h1>
+                <h1 className="text-darkb font-poppins font-semibold text-md">Charles Leclerc</h1>
                 <h2 className="text-secondary font-poppins text-sm">Mahasiswa IT</h2>
                 <p className="text-darkb font-poppins text-sm">"Panduan Seputar Informasi Laptop & PC Sangat Lengkap, Mantap LapCare 😁"</p>
               </div>
@@ -146,7 +146,7 @@ export default function Home() {
             <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
               <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
               <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Nabil Maulana Hafizh</h1>
+                <h1 className="text-darkb font-poppins font-semibold text-md">Max Verstappen</h1>
                 <h2 className="text-secondary font-poppins text-sm">Mahasiswa IT</h2>
                 <p className="text-darkb font-poppins text-sm">"Teknisi ramah, penjelasan mudah dimengerti. Harga transparan, hasil sangat memuaskan."</p>
               </div>
@@ -154,7 +154,7 @@ export default function Home() {
             <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
               <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
               <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Dhiva Kaisar Mifhatur</h1>
+                <h1 className="text-darkb font-poppins font-semibold text-md">Lewis Hamilton</h1>
                 <h2 className="text-secondary font-poppins text-sm">Freelancer Design</h2>
                 <p className="text-darkb font-poppins text-sm">"Konsultasi online-nya sangat membantu sebelum saya memutuskan servis. Solusi praktis dan hemat waktu 🫡"</p>
               </div>
@@ -162,7 +162,7 @@ export default function Home() {
             <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
               <Image src={userFemale} alt="userLogo" className="border border-secondary rounded-full w-[65px] mr-5" />
               <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Farah Lestari</h1>
+                <h1 className="text-darkb font-poppins font-semibold text-md">Farah Lestari Mpruy</h1>
                 <h2 className="text-secondary font-poppins text-sm">Dosen Manajemen</h2>
                 <p className="text-darkb font-poppins text-sm">"Panduan perawatan baterai yang mereka berikan mudah diikuti. Sekarang baterai tahan lebih lama."</p>
               </div>
@@ -170,7 +170,7 @@ export default function Home() {
             <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
               <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
               <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">M. Rasya Arya K.</h1>
+                <h1 className="text-darkb font-poppins font-semibold text-md">Fernando Alonso</h1>
                 <h2 className="text-secondary font-poppins text-sm">Staff Administrasi</h2>
                 <p className="text-darkb font-poppins text-sm">"Laptop saya sering panas saat editing video. Setelah dibersihkan dan diganti thermal paste di LapCare, suhunya jauh lebih stabil."</p>
               </div>
@@ -178,38 +178,34 @@ export default function Home() {
             <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
               <Image src={userFemale} alt="userLogo" className="border border-secondary rounded-full w-[65px] mr-5" />
               <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Livy Andriana</h1>
-                <h2 className="text-secondary font-poppins text-sm">Mahasiswa Biologi</h2>
+                <h1 className="text-darkb font-poppins font-semibold text-md">Livy Renata</h1>
+                <h2 className="text-secondary font-poppins text-sm">Mahasiswa DKV</h2>
                 <p className="text-darkb font-poppins text-sm">"Konsultasi Chat Online Sangat Fast Respon"</p>
               </div>
             </div>
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userFemale} alt="userLogo" className="border border-secondary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Lisa Mariana</h1>
-                <h2 className="text-secondary font-poppins text-sm">Pegawai Bank</h2>
-                <p className="text-darkb font-poppins text-sm">"Proses Home Service Sangat Mudah, 10/10 🤩🤩"</p>
-              </div>
-            </div>
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Haical Sheva J.</h1>
-                <h2 className="text-secondary font-poppins text-sm">Pegawai Bank</h2>
-                <p className="text-darkb font-poppins text-sm">"Biaya Layanan Home Service Terjangkau Banget !!"</p>
-              </div>
-            </div>
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Chico Jericho</h1>
-                <h2 className="text-secondary font-poppins text-sm">Sutradara Film</h2>
-                <p className="text-darkb font-poppins text-sm">"Layanan dari Lapcare Emang Ga Pernah Ngecewain."</p>
-              </div>
-            </div>
           </div>
-          <div className="flex items-center justify-center mt-8" data-aos="zoom-in-up">
+          {/* <div className="flex items-center justify-center mt-8" data-aos="zoom-in-up">
             <Link href="/ulasan" className="text-darkb border px-6 py-2 rounded-full font-poppins bg-transparent border-darkb shadow-md hover:shadow-2xl hover:bg-primary hover:text-white hover:border-primary transition duration-300 cursor-pointer">Tulis Ulasan Anda →</Link>
+          </div> */}
+        </div>
+      </section>
+
+      <section className="w-full flex items-center bg-slate-200 pb-16 px-4 lg:px-6">
+        <div className="container mx-auto  bg-gradient-to-b from-[#1d293d] via-[#23385e] to-[#3b82f6] border border-secondary  rounded-2xl pt-12 pb-12" data-aos="fade-up">
+          <div className="flex flex-col items-center justify-center text-center">
+            <h1 className="font-poppins text-slate-100 text-2xl xl:text-3xl mb-8">Pendapat kamu membantu kami meningkatkan layanan!</h1>
+            <div className="w-full flex items-center justify-center">
+              <input type="text" className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3" placeholder="Nama" />
+            </div>
+            <div className="w-full flex items-center justify-center">
+              <input type="text" className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3" placeholder="Pekerjaan (Opsional)" />
+            </div>
+            <div className="w-full flex items-center justify-center">
+              <textarea className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3" placeholder="Tulis pendapat kamu disini :D" />
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <button className="border rounded-full px-6 py-2 font-poppins border-primary bg-primary text-white cursor-pointer hover:bg-sky-500 hover:border-sky-500 shadow-md hover:shadow-2xl duration-300">Kirim</button>
+            </div>
           </div>
         </div>
       </section>
