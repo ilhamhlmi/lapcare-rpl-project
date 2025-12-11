@@ -46,7 +46,7 @@ export default function Login() {
       alert("Login berhasil!");
 
       // ✅ WAJIB full reload agar middleware membaca cookie
-      window.location.href = "/guide";
+      window.location.href = "/";
     } catch (error) {
       alert("Server error");
       console.error(error);

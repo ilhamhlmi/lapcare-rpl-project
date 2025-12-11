@@ -19,7 +19,7 @@ export function middleware(request: NextRequest) {
 
   // CEK: kalau sudah login dan mencoba buka /login
   if (session && pathname === "/login") {
-    return NextResponse.redirect(new URL("/guide", request.url));
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   return NextResponse.next();
