@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
 
   // daftar halaman yang wajib login
   const protectedRoutes = [
-    "/guide",
+    
     "/konsultasi",
     "/userProfile",
     "/homeService"

@@ -24,7 +24,7 @@ export default function hardwareKomputer() {
             <section className="bg-slate-200 pt-32">
                 <div className="container mx-auto">
                     <div className="flex justify-center items-center mb-5">
-                        <h1 className="text-darkb font-poppins text-2xl 2xl:text-3xl font-semibold border-b pb-5 border-secondary">Panduan Hardware Komptuer</h1>
+                        <h1 className="text-darkb font-poppins text-2xl 2xl:text-3xl font-semibold border-b pb-5 border-secondary">Panduan Hardware Komputer</h1>
                     </div>
                     <div className="flex justify-center items-center px-4">
                         <p className="text-darkb text-center text-4xl xl:text-5xl font-poppins">Silahkan pilih kendala yang kamu alami</p>
@@ -35,44 +35,44 @@ export default function hardwareKomputer() {
             <section className="bg-slate-200 pt-16 pb-16 px-6">
                 <div className="container mx-auto bg-gradient-to-tl from-[#1d293d] via-[#23385e] to-[#3b82f6] border border-secondary rounded-xl shadow-xl p-5">
                     <div className="grid grid-cols-2 xl:grid-cols-4 gap-5">
-                        <Link href="/guide/laptop/software/laptoplemot" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
+                        <Link href="/guide/komputer/hardware/tampilantidakmuncul" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
                             <div>
-                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Laptop lemot saat dinyalakan</h1>
+                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Tampilan Tidak Muncul</h1>
                             </div>
                         </Link>
-                        <Link href="" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
+                        <Link href="/guide/komputer/hardware/tidaknyala" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
                             <div>
-                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Lambat saat membuka aplikasi</h1>
+                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Komputer Tidak Nyala Sama Sekali</h1>
                             </div>
                         </Link>
-                        <Link href="" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
+                        <Link href="/guide/komputer/hardware/kipastidakmutar" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
                             <div>
-                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">WiFi tidak muncul</h1>
+                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Kipas Tidak Mutar</h1>
                             </div>
                         </Link>
-                        <Link href="" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
+                        <Link href="/guide/komputer/hardware/ram" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
                             <div>
-                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Icon/taskbar hilang</h1>
+                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">RAM Tidak Terbaca</h1>
                             </div>
                         </Link>
-                        <Link href="" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
+                        <Link href="/guide/komputer/hardware/ssdtidakterbaca" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
                             <div>
-                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">CPU usage tinggi</h1>
+                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Hardisk / SSD Tidak Terbaca</h1>
                             </div>
                         </Link>
-                        <Link href="" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
+                        <Link href="/guide/komputer/hardware/usb" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
                             <div>
-                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Aplikasi tidak bisa dibuka</h1>
+                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Port USB Tidak Terbaca</h1>
                             </div>
                         </Link>
-                        <Link href="" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
+                        <Link href="/guide/komputer/hardware/aud" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
                             <div>
-                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Windows update error</h1>
+                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Port Audio Tidak Terbaca</h1>
                             </div>
                         </Link>
-                        <Link href="" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
+                        <Link href="/guide/komputer/hardware/psu" className="border text-center p-4 flex items-center justify-center rounded-xl border-secondary bg-white/5 backdrop-blur-2xl hover:bg-white/15 duration-250">
                             <div>
-                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">Bluetooth tidak muncul</h1>
+                                <h1 className="font-poppins text-slate-200 font-semibold text-lg">PSU Lemah</h1>
                             </div>
                         </Link>
                     </div>
