@@ -24,11 +24,11 @@ export async function POST(req: Request) {
     );
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  // const hashedPassword = await bcrypt.hash(password, 10);
 
   await db.query(
     "INSERT INTO user (email, no_tlp, username, password) VALUES (?, ?, ?, ?)",
-    [email, no_tlp, username, hashedPassword]
+    [email, no_tlp, username, password]
   );
 
   return NextResponse.json({

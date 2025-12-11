@@ -1,13 +1,25 @@
 "use client";
 
 import AOS from 'aos';
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 import Link from "next/link";
 import NavbarClient from "../components/NavbarClient";
 import { useRouter } from "next/navigation";
 
 export default function userProfile() {
+
+  const [user, setUser] = useState<any>({});
+
+  useEffect(() => {
+    fetch("/api/userProfile")
+      .then((res) => res.json())
+      .then((data) => {
+        setUser(data);
+        console.log("User data:", data); // buat debug di console
+      })
+      .catch((err) => console.log("Fetch error:", err));
+  }, []);
+
   const handleLogout = async () => {
     await fetch("/api/logout", {
       method: "POST",
@@ -16,6 +28,7 @@ export default function userProfile() {
 
     window.location.href = "/login";
   };
+
   return (
     <div>
       <NavbarClient />
@@ -25,19 +38,19 @@ export default function userProfile() {
             <h1 className="font-poppins text-3xl text-darkb font-semibold mb-5">Account Profile</h1>
             <div className="flex flex-col w-full xl:w-2/3 mb-3">
               <label htmlFor="" className="font-poppins text-sm px-4">Username</label>
-              <h1 className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb">ilhamhlmi</h1>
+              <h1 className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb">{user.username}</h1>
             </div>
             <div className="flex flex-col w-full xl:w-2/3 mb-3">
               <label htmlFor="" className="font-poppins text-sm px-4">Phone Number</label>
-              <h1 className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb">0895403274420</h1>
+              <h1 className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb">{user.no_tlp}</h1>
             </div>
             <div className="flex flex-col w-full xl:w-2/3 mb-3">
               <label htmlFor="" className="font-poppins text-sm px-4">Email</label>
-              <h1 className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb">ilhamhilmi206@gmail.com</h1>
+              <h1 className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb">{user.email}</h1>
             </div>
             <div className="flex flex-col w-full xl:w-2/3 mb-3">
               <label htmlFor="" className="font-poppins text-sm px-4">Password</label>
-              <h1 className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb">nabilmpruydoyanngober</h1>
+              <h1 className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb">{user.password}</h1>
             </div>
 
             <div className="flex flex-col items-center justify-center space-y-2 w-full xl:w-2/3 text-center">
