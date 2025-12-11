@@ -1,11 +1,17 @@
 "use client";
+
 import AOS from 'aos';
 import { useEffect } from "react";
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import NavbarClient from "../components/NavbarClient";
+import toast from 'react-hot-toast';
 
 export default function Login() {
+
+  const router = useRouter()
+  
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -38,15 +44,21 @@ export default function Login() {
 
       const data = await res.json();
 
+
       if (!res.ok) {
-        alert(data.message);
-        return;
+        toast.error(data.message);
+      } else {
+        toast.success("Login berhasil!");
+        setTimeout(() => {
+          router.push("/");
+        }, 800);
       }
 
-      alert("Login berhasil!");
+
+      // alert("Login berhasil!");
 
       // ✅ WAJIB full reload agar middleware membaca cookie
-      window.location.href = "/";
+      // window.location.href = "/";
     } catch (error) {
       alert("Server error");
       console.error(error);

@@ -6,6 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import NavbarClient from "../components/NavbarClient";
 import { useRouter } from "next/navigation";
+import toast from 'react-hot-toast';
 
 export default function SignUp() {
 
@@ -33,7 +34,7 @@ export default function SignUp() {
     e.preventDefault();
 
     if (!form.email || !form.no_tlp || !form.username || !form.password) {
-      alert("Semua field wajib diisi!");
+      toast.error("Semua field wajib diisi!");
       return;
     }
 
@@ -47,12 +48,16 @@ export default function SignUp() {
       const data = await res.json();
 
       if (!res.ok) {
-        alert(data.message);
-        return;
+        toast.error(data.message);
+      } else {
+        toast.success("Sign Up berhasil!");
+        setTimeout(() => {
+          router.push("/login");
+        }, 800);
       }
 
-      alert("Akun berhasil dibuat!");
-      router.push("/login");
+      // alert("Akun berhasil dibuat!");
+      // router.push("/login");
     } catch (error) {
       alert("Server error");
     }
