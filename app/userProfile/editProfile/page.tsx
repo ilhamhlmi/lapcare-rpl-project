@@ -34,7 +34,7 @@ export default function userProfile() {
             </div>
 
             <div className="flex flex-col items-center justify-center space-y-2 w-full xl:w-2/3">
-              <button className="border rounded-full px-6 py-2 font-poppins border-primary bg-primary hover:bg-sky-700 hover:border-sky-700 shadow-md hover:shadow-2xl duration-300 text-white cursor-pointer w-full">Update Profile</button>
+              <button className="border rounded-full px-6 py-2 font-poppins border-green-500 bg-green-500 hover:bg-green-700 hover:border-green-700 shadow-md hover:shadow-2xl duration-300 text-white cursor-pointer w-full">Update Profile</button>
             </div>
           </div>
         </div>

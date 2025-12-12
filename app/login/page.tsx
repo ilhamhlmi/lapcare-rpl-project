@@ -71,12 +71,13 @@ export default function Login() {
 
       <section className="min-h-screen w-full flex items-center bg-slate-200 pt-16">
         <div className="container mx-auto flex items-center justify-center px-4">
-          <div className="w-full xl:w-1/2 bg-white backdrop-blur-2xl shadow-2xl rounded-2xl flex flex-col items-center px-7 py-10 border border-darkb" data-aos="zoom-in-up">
+          <div className="w-full xl:w-1/2 bg-white backdrop-blur-2xl shadow-2xl rounded-2xl flex flex-col items-center px-7 py-10 border border-darkb">
             <h1 className="text-3xl text-darkb mb-8 font-poppins font-semibold">Login</h1>
 
             <form
               onSubmit={handleSubmit}
               className="flex flex-col w-full items-center"
+              autoComplete='off'
             >
               <div className="w-full xl:w-2/3 mb-3">
                 <input

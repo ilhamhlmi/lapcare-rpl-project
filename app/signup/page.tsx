@@ -68,9 +68,9 @@ export default function SignUp() {
   return (
     <div>
       <NavbarClient />
-      <form onSubmit={handleSubmit} className="min-h-screen w-full flex items-center bg-slate-200 relative pt-16">
+      <form onSubmit={handleSubmit} className="min-h-screen w-full flex items-center bg-slate-200 relative pt-16" autoComplete='off'>
         <div className="container mx-auto flex items-center justify-center px-4 xl:px-0">
-          <div className="w-full xl:w-1/2 bg-white backdrop-blur-2xl border border-darkb shadow-2xl rounded-2xl flex flex-col items-center justify-center px-7 xl:px-10 py-10" data-aos="zoom-in-up">
+          <div className="w-full xl:w-1/2 bg-white backdrop-blur-2xl border border-darkb shadow-2xl rounded-2xl flex flex-col items-center justify-center px-7 xl:px-10 py-10">
             <h1 className="font-poppins text-3xl text-darkb font-semibold mb-8">Sign Up</h1>
             <div className="flex flex-col w-full xl:w-2/3 mb-3">
               {/* <label htmlFor="" className="font-poppins text-sm">Email</label> */}
