@@ -96,24 +96,24 @@ export default function userProfile() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-9 text-darkb"
+                className="absolute right-4 top-[30px] text-darkb"
               >
                 {showPassword ? "🙈" : "👁️"}
               </button>
             </div>
 
             <div className="flex flex-col items-center justify-center space-y-2 w-full xl:w-2/3 text-center">
-              <Link href="/userProfile/editProfile" className="border rounded-full px-6 py-1 font-poppins border-primary bg-primary text-white w-full">
+              <Link href="/userProfile/editProfile" className="border rounded-full px-6 py-1 font-poppins border-primary bg-primary hover:bg-sky-700 hover:border-sky-700 shadow-md hover:shadow-2xl duration-300 text-white cursor-pointer w-full">
                 Edit Profile
               </Link>
 
-              <Link href="/userProfile/riwayatLayanan" className="border rounded-full px-6 py-1 font-poppins border-primary bg-primary text-white w-full">
+              <Link href="/userProfile/riwayatLayanan" className="border rounded-full px-6 py-1 font-poppins border-primary bg-primary hover:bg-sky-700 hover:border-sky-700 shadow-md hover:shadow-2xl duration-300 text-white cursor-pointer w-full">
                 Lihat Riwayat Layanan
               </Link>
 
               <button
                 onClick={handleLogout}
-                className="border rounded-full px-6 py-2 font-poppins border-red-600 bg-red-600 text-white w-full"
+                className="border rounded-full px-6 py-2 font-poppins border-red-600 bg-red-600 hover:bg-red-800 hover:border-red-800 shadow-md hover:shadow-2xl duration-300 text-white cursor-pointer w-full"
               >
                 Logout
               </button>
