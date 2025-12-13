@@ -146,7 +146,7 @@ export default function UserProfile() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-9 text-darkb"
+                className="absolute right-4 top-[30px] text-darkb"
               >
                 {showPassword ? "🙈" : "👁️"}
               </button>
