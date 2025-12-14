@@ -36,7 +36,6 @@ export default function Login() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
 
-        // ✅ WAJIB supaya cookie terbaca middleware
         credentials: "include",
 
         body: JSON.stringify(form),
@@ -55,10 +54,6 @@ export default function Login() {
       }
 
 
-      // alert("Login berhasil!");
-
-      // ✅ WAJIB full reload agar middleware membaca cookie
-      // window.location.href = "/";
     } catch (error) {
       alert("Server error");
       console.error(error);

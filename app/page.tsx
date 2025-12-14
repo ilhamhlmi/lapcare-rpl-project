@@ -15,10 +15,28 @@ import userMale from "@/assets/review/user2.svg"
 import userFemale from "@/assets/review/userFemale.svg"
 
 import { useEffect } from "react";
+import { useState } from "react";
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 export default function Home() {
+
+  useEffect(() => {
+  const fetchReviews = async () => {
+    try {
+      const res = await fetch("/api/review");
+      const json = await res.json();
+      setReviews(json.data);
+    } catch (error) {
+      console.error("Gagal mengambil review", error);
+    }
+  };
+
+  fetchReviews();
+}, []);
+
 
   useEffect(() => {
     AOS.init({
@@ -26,6 +44,43 @@ export default function Home() {
       once: true,
     });
   }, []);
+
+  const [name, setName] = useState("");
+const [job, setJob] = useState("");
+const [message, setMessage] = useState("");
+const [loading, setLoading] = useState(false);
+
+const [reviews, setReviews] = useState<any[]>([]);
+
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setLoading(true);
+
+
+  try {
+    const res = await fetch("/api/review", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, job, message }),
+    });
+
+    if (!res.ok) {
+      alert("Gagal mengirim ulasan");
+      return;
+    }
+
+    alert("Ulasan berhasil dikirim!");
+    setName("");
+    setJob("");
+    setMessage("");
+  } catch (error) {
+    alert("Terjadi kesalahan");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="">
@@ -130,85 +185,127 @@ export default function Home() {
       </section>
 
       <section className="w-full flex items-center bg-slate-200 pt-16 pb-16">
-        <div className="container mx-auto">
-          <div className="flex justify-center items-center" data-aos="fade-up">
-            <h1 className="font-poppins text-3xl 2xl:text-4xl text-darkb border-b pb-5 border-secondary font-semibold text-center max-w-[300px] lg:max-w-none mb-8">Kata Mereka Tentang LapCare</h1>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg: justify-items-center">
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Charles Leclerc</h1>
-                <h2 className="text-secondary font-poppins text-sm">Mahasiswa IT</h2>
-                <p className="text-darkb font-poppins text-sm">"Panduan Seputar Informasi Laptop & PC Sangat Lengkap, Mantap LapCare 😁"</p>
-              </div>
-            </div>
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Max Verstappen</h1>
-                <h2 className="text-secondary font-poppins text-sm">Mahasiswa IT</h2>
-                <p className="text-darkb font-poppins text-sm">"Teknisi ramah, penjelasan mudah dimengerti. Harga transparan, hasil sangat memuaskan."</p>
-              </div>
-            </div>
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Lewis Hamilton</h1>
-                <h2 className="text-secondary font-poppins text-sm">Freelancer Design</h2>
-                <p className="text-darkb font-poppins text-sm">"Konsultasi online-nya sangat membantu sebelum saya memutuskan servis. Solusi praktis dan hemat waktu 🫡"</p>
-              </div>
-            </div>
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userFemale} alt="userLogo" className="border border-secondary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Farah Lestari Mpruy</h1>
-                <h2 className="text-secondary font-poppins text-sm">Dosen Manajemen</h2>
-                <p className="text-darkb font-poppins text-sm">"Panduan perawatan baterai yang mereka berikan mudah diikuti. Sekarang baterai tahan lebih lama."</p>
-              </div>
-            </div>
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userMale} alt="userLogo" className="border border-secondary bg-primary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Fernando Alonso</h1>
-                <h2 className="text-secondary font-poppins text-sm">Staff Administrasi</h2>
-                <p className="text-darkb font-poppins text-sm">"Laptop saya sering panas saat editing video. Setelah dibersihkan dan diganti thermal paste di LapCare, suhunya jauh lebih stabil."</p>
-              </div>
-            </div>
-            <div className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md" data-aos="zoom-in-up">
-              <Image src={userFemale} alt="userLogo" className="border border-secondary rounded-full w-[65px] mr-5" />
-              <div>
-                <h1 className="text-darkb font-poppins font-semibold text-md">Livy Renata</h1>
-                <h2 className="text-secondary font-poppins text-sm">Mahasiswa DKV</h2>
-                <p className="text-darkb font-poppins text-sm">"Konsultasi Chat Online Sangat Fast Respon"</p>
-              </div>
-            </div>
-          </div>
-          {/* <div className="flex items-center justify-center mt-8" data-aos="zoom-in-up">
-            <Link href="/ulasan" className="text-darkb border px-6 py-2 rounded-full font-poppins bg-transparent border-darkb shadow-md hover:shadow-2xl hover:bg-primary hover:text-white hover:border-primary transition duration-300 cursor-pointer">Tulis Ulasan Anda →</Link>
-          </div> */}
-        </div>
-      </section>
+  <div className="container mx-auto">
+    <div className="flex justify-center items-center" data-aos="fade-up">
+      <h1 className="font-poppins text-3xl 2xl:text-4xl text-darkb border-b pb-5 border-secondary font-semibold text-center max-w-[300px] lg:max-w-none mb-8">
+        Kata Mereka Tentang LapCare
+      </h1>
+    </div>
 
-      <section className="w-full flex items-center bg-slate-200 pb-16 px-4 lg:px-6">
-        <div className="container mx-auto  bg-gradient-to-b from-[#1d293d] via-[#23385e] to-[#3b82f6] border border-secondary  rounded-2xl pt-12 pb-12" data-aos="fade-up">
-          <div className="flex flex-col items-center justify-center text-center">
-            <h1 className="font-poppins text-slate-100 text-2xl xl:text-3xl mb-8">Pendapat kamu membantu kami meningkatkan layanan!</h1>
-            <div className="w-full flex items-center justify-center">
-              <input type="text" className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3" placeholder="Nama" />
-            </div>
-            <div className="w-full flex items-center justify-center">
-              <input type="text" className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3" placeholder="Pekerjaan (Opsional)" />
-            </div>
-            <div className="w-full flex items-center justify-center">
-              <textarea className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3" placeholder="Tulis pendapat kamu disini :D" />
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <button className="border rounded-full px-6 py-2 font-poppins border-primary bg-primary text-white cursor-pointer hover:bg-sky-500 hover:border-sky-500 shadow-md hover:shadow-2xl duration-300">Kirim</button>
-            </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 justify-items-center">
+      {reviews.map((review, index) => (
+        <div
+          key={review.id ?? index}
+          className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md"
+          data-aos="zoom-in-up"
+        >
+          <Image
+            src={index % 2 === 0 ? userMale : userFemale}
+            alt="userLogo"
+            className="border border-secondary bg-primary rounded-full w-[65px] mr-5"
+          />
+
+          <div>
+            <h1 className="text-darkb font-poppins font-semibold text-md">
+              {review.name}
+            </h1>
+
+            {review.job && (
+              <h2 className="text-secondary font-poppins text-sm">
+                {review.job}
+              </h2>
+            )}
+
+            <p className="text-darkb font-poppins text-sm">
+              “{review.message}”
+            </p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+
+    {/*
+    <div className="flex items-center justify-center mt-8" data-aos="zoom-in-up">
+      <Link href="/ulasan" className="text-darkb border px-6 py-2 rounded-full font-poppins bg-transparent border-darkb shadow-md hover:shadow-2xl hover:bg-primary hover:text-white hover:border-primary transition duration-300 cursor-pointer">
+        Tulis Ulasan Anda →
+      </Link>
+    </div>
+    */}
+  </div>
+</section>
+
+     <section className="w-full flex items-center bg-slate-200 pb-16 px-4 lg:px-6">
+  <div className="container mx-auto bg-gradient-to-b from-[#1d293d] via-[#23385e] to-[#3b82f6] border border-secondary rounded-2xl pt-12 pb-12" data-aos="fade-up">
+    <form
+      onSubmit={async (e) => {
+        e.preventDefault();
+
+        const res = await fetch("/api/review", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, job, message }),
+        });
+
+        if (res.ok) {
+          alert("Ulasan berhasil dikirim!");
+          setName("");
+          setJob("");
+          setMessage("");
+        } else {
+          alert("Gagal mengirim ulasan");
+        }
+      }}
+      className="flex flex-col items-center justify-center text-center"
+    >
+      <h1 className="font-poppins text-slate-100 text-2xl xl:text-3xl mb-8">
+        Pendapat kamu membantu kami meningkatkan layanan!
+      </h1>
+
+      <div className="w-full flex items-center justify-center">
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
+          placeholder="Nama"
+        />
+      </div>
+
+      <div className="w-full flex items-center justify-center">
+        <input
+          type="text"
+          value={job}
+          onChange={(e) => setJob(e.target.value)}
+          className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
+          placeholder="Pekerjaan (Opsional)"
+        />
+      </div>
+
+      <div className="w-full flex items-center justify-center">
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+          className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
+          placeholder="Tulis pendapat kamu disini :D"
+        />
+      </div>
+
+      <div className="flex flex-col items-center justify-center">
+        <button
+          type="submit"
+          className="border rounded-full px-6 py-2 font-poppins border-primary bg-primary text-white cursor-pointer hover:bg-sky-500 hover:border-sky-500 shadow-md hover:shadow-2xl duration-300"
+        >
+          Kirim
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
 
       <FooterClient />
     </div>
