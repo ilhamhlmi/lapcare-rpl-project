@@ -47,7 +47,6 @@ export default function KonsulTable() {
                                 <th className="px-4 py-3">No</th>
                                 <th className="px-4 py-3">Tanggal Dibuat</th>
                                 <th className="px-4 py-3">Username</th>
-                                <th className="px-4 py-3">Nama</th>
                                 <th className="px-4 py-3">Perangkat</th>
                                 <th className="px-4 py-3">Pesan</th>
                                 <th className="px-4 py-3">Foto</th>

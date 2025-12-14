@@ -49,7 +49,7 @@ export default function HomeServiceTable() {
               <tr>
                 <th className="px-4 py-3">No</th>
                 <th className="px-4 py-3">Tanggal Dibuat</th>
-                <th className="px-4 py-3">Nama</th>
+                <th className="px-4 py-3">Username</th>
                 <th className="px-4 py-3">Perangkat</th>
                 <th className="px-4 py-3">Alamat Lengkap</th>
                 <th className="px-4 py-3">Nomor Cadangan</th>
