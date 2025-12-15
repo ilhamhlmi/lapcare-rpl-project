@@ -7,17 +7,18 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const protectedRoutes = [
+    "/guide",
     "/konsultasi",
     "/userProfile",
     "/homeService"
   ];
 
-  // kalau belum login dan mengakses protected route
+  // ini kalo belum login dan mengakses protected route
   if (!session && protectedRoutes.some(route => pathname.startsWith(route))) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // kalau sudah login dan mencoba masuk halaman login
+  // ini kalo sudah login dan mencoba masuk halaman login
   if (session && pathname === "/login") {
     return NextResponse.redirect(new URL("/", request.url));
   }

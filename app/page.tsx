@@ -16,6 +16,7 @@ import userFemale from "@/assets/review/userFemale.svg"
 
 import { useEffect } from "react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -249,12 +250,12 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         });
 
         if (res.ok) {
-          alert("Ulasan berhasil dikirim!");
+          toast.success("Ulasan berhasil dikirim!");
           setName("");
           setJob("");
           setMessage("");
         } else {
-          alert("Gagal mengirim ulasan");
+          toast.error("Gagal mengirim ulasan");
         }
       }}
       className="flex flex-col items-center justify-center text-center"
