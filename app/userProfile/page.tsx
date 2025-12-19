@@ -4,6 +4,9 @@ import AOS from 'aos';
 import { useEffect, useState } from 'react';
 import Link from "next/link";
 import NavbarClient from "../components/NavbarClient";
+import showPass from "@/assets/password/eye-alt-svgrepo-com.svg";
+import hidePass from "@/assets/password/eye-slash-alt-svgrepo-com.svg";
+import Image from "next/image";
 
 export default function userProfile() {
 
@@ -23,12 +26,12 @@ export default function userProfile() {
       .then((data) => {
         setUser(data);
 
-        
+
         setForm({
           username: data.username,
           no_tlp: data.no_tlp,
           email: data.email,
-          password: data.password,  
+          password: data.password,
         });
 
       })
@@ -50,7 +53,7 @@ export default function userProfile() {
       <div className="min-h-screen w-full flex items-center bg-slate-200 relative pt-16 text-start">
         <div className="container mx-auto flex items-center justify-center px-4 xl:px-0">
           <div className="w-full xl:w-2/3 bg-white border border-darkb shadow-2xl rounded-2xl flex flex-col items-center justify-center px-7 xl:px-10 py-10">
-            
+
             <h1 className="font-poppins text-3xl text-darkb font-semibold mb-5">
               Account Profile
             </h1>
@@ -58,7 +61,7 @@ export default function userProfile() {
             {/* Username */}
             <div className="flex flex-col w-full xl:w-2/3 mb-3">
               <label className="font-poppins text-sm px-4">Username</label>
-              <h1 className="border px-4 py-2 font-poppins border-darkb rounded-full text-darkb">
+              <h1 className="border px-4 py-2 font-poppins border-darkb rounded-full text-darkb focus:outline-none">
                 {user.username}
               </h1>
             </div>
@@ -66,7 +69,7 @@ export default function userProfile() {
             {/* Phone Number */}
             <div className="flex flex-col w-full xl:w-2/3 mb-3">
               <label className="font-poppins text-sm px-4">Phone Number</label>
-              <h1 className="border px-4 py-2 font-poppins border-darkb rounded-full text-darkb">
+              <h1 className="border px-4 py-2 font-poppins border-darkb rounded-full text-darkb focus:outline-none">
                 {user.no_tlp}
               </h1>
             </div>
@@ -74,7 +77,7 @@ export default function userProfile() {
             {/* Email */}
             <div className="flex flex-col w-full xl:w-2/3 mb-3">
               <label className="font-poppins text-sm px-4">Email</label>
-              <h1 className="border px-4 py-2 font-poppins border-darkb rounded-full text-darkb">
+              <h1 className="border px-4 py-2 font-poppins border-darkb rounded-full text-darkb focus:outline-none">
                 {user.email}
               </h1>
             </div>
@@ -85,7 +88,7 @@ export default function userProfile() {
 
               <input
                 type={showPassword ? "text" : "password"}
-                className="border px-4 py-2 font-poppins border-darkb rounded-full text-darkb pr-12"
+                className="border px-4 py-2 font-poppins border-darkb rounded-full text-darkb focus:outline-none"
                 value={form.password}
                 onChange={(e) =>
                   setForm({ ...form, password: e.target.value })
@@ -96,9 +99,14 @@ export default function userProfile() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-[30px] text-darkb"
+                className="absolute right-4 top-[30px] text-secondary font-poppins cursor-pointer text-sm"
               >
-                {showPassword ? "🙈" : "👁️"}
+                <Image
+                  src={showPassword ? hidePass : showPass}
+                  alt={showPassword ? "Hide password" : "Show password"}
+                  width={20}
+                  height={20}
+                />
               </button>
             </div>
 

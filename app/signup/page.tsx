@@ -7,8 +7,13 @@ import Link from "next/link";
 import NavbarClient from "../components/NavbarClient";
 import { useRouter } from "next/navigation";
 import toast from 'react-hot-toast';
+import Image from 'next/image';
+import showPass from "@/assets/password/eye-alt-svgrepo-com.svg";
+import hidePass from "@/assets/password/eye-slash-alt-svgrepo-com.svg";
 
 export default function SignUp() {
+
+  const [showPassword, setShowPassword] = useState(false)
 
   useEffect(() => {
     AOS.init({
@@ -84,9 +89,17 @@ export default function SignUp() {
               {/* <label htmlFor="" className="font-poppins text-sm">Username</label> */}
               <input onChange={handleChange} type="username" name="username" className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb" placeholder="Username" />
             </div>
-            <div className="flex flex-col w-full xl:w-2/3 mb-3">
+            <div className="flex flex-col w-full xl:w-2/3 mb-3 relative">
               {/* <label htmlFor="" className="font-poppins text-sm">Password</label> */}
-              <input onChange={handleChange} type="password" name="password" className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb" placeholder="Password" />
+              <input onChange={handleChange} type={showPassword ? "text" : "password"} name="password" className="border focus:outline-none px-4 py-2 font-poppins border-darkb rounded-full text-darkb" placeholder="Password" />
+              <button type='button' onClick={() => setShowPassword(!showPassword)} className='absolute right-4 top-1/2 -translate-y-1/2'>
+                <Image
+                  src={showPassword ? hidePass : showPass}
+                  alt={showPassword ? "Hide password" : "Show password"}
+                  width={20}
+                  height={20}
+                />
+              </button>
             </div>
 
             <div className="flex flex-col items-center justify-center space-y-2">

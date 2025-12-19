@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import NavbarClient from "@/app/components/NavbarClient";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import showPass from "@/assets/password/eye-alt-svgrepo-com.svg";
+import hidePass from "@/assets/password/eye-slash-alt-svgrepo-com.svg";
+import Image from "next/image";
 
 export default function UserProfile() {
   const router = useRouter();
@@ -32,7 +35,7 @@ export default function UserProfile() {
           return;
         }
 
-        
+
         setForm({
           username: data.username,
           no_tlp: data.no_tlp,
@@ -146,9 +149,14 @@ export default function UserProfile() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-[30px] text-darkb"
+                className="absolute right-4 top-[30px] text-secondary font-poppins cursor-pointer text-sm"
               >
-                {showPassword ? "🙈" : "👁️"}
+                <Image
+                  src={showPassword ? hidePass : showPass}
+                  alt={showPassword ? "Hide password" : "Show password"}
+                  width={20}
+                  height={20}
+                />
               </button>
             </div>
 

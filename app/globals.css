@@ -50,7 +50,25 @@ body {
   @apply origin-bottom-left -rotate-45;
 } */
 
+.marquee-track {
+  display: flex;
+  width: fit-content;
+  animation: marquee 45s linear infinite;
+}
 
+.marquee-track:hover,
+.marquee-track:hover * {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
 
 .responsive {
   @apply sm:bg-yellow-200;

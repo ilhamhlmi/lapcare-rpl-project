@@ -25,18 +25,18 @@ import 'aos/dist/aos.css';
 export default function Home() {
 
   useEffect(() => {
-  const fetchReviews = async () => {
-    try {
-      const res = await fetch("/api/review");
-      const json = await res.json();
-      setReviews(json.data);
-    } catch (error) {
-      console.error("Gagal mengambil review", error);
-    }
-  };
+    const fetchReviews = async () => {
+      try {
+        const res = await fetch("/api/review");
+        const json = await res.json();
+        setReviews(json.data);
+      } catch (error) {
+        console.error("Gagal mengambil review", error);
+      }
+    };
 
-  fetchReviews();
-}, []);
+    fetchReviews();
+  }, []);
 
 
   useEffect(() => {
@@ -47,41 +47,40 @@ export default function Home() {
   }, []);
 
   const [name, setName] = useState("");
-const [job, setJob] = useState("");
-const [message, setMessage] = useState("");
-const [loading, setLoading] = useState(false);
+  const [job, setJob] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-const [reviews, setReviews] = useState<any[]>([]);
-
-
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setLoading(true);
+  const [reviews, setReviews] = useState<any[]>([]);
 
 
-  try {
-    const res = await fetch("/api/review", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, job, message }),
-    });
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
 
-    if (!res.ok) {
-      alert("Gagal mengirim ulasan");
-      return;
+
+    try {
+      const res = await fetch("/api/review", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, job, message }),
+      });
+
+      if (!res.ok) {
+        alert("Gagal mengirim ulasan");
+        return;
+      }
+
+      alert("Ulasan berhasil dikirim!");
+      setName("");
+      setJob("");
+      setMessage("");
+    } catch (error) {
+      alert("Terjadi kesalahan");
+    } finally {
+      setLoading(false);
     }
-
-    alert("Ulasan berhasil dikirim!");
-    setName("");
-    setJob("");
-    setMessage("");
-  } catch (error) {
-    alert("Terjadi kesalahan");
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
 
   return (
     <div className="">
@@ -117,7 +116,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         </div>
       </section>
 
-      <section className="w-full flex items-center pt-16 pb-16 bg-slate-200">
+      <section id="layanan" className="w-full flex items-center pt-16 pb-16 bg-slate-200">
         <div className="container mx-auto">
           <div className="flex justify-center items-center">
             <h1 className="font-poppins text-3xl 2xl:text-4xl text-darkb border-b pb-5 border-secondary font-semibold" data-aos="fade-up">Layanan Kami</h1>
@@ -152,161 +151,142 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           <div className="bg-white/5 shadow-lg backdrop-blur-md w-[350px] lg:w-3xl 2xl:w-4xl flex-col justify-items-center mx-auto rounded-lg border border-secondary text-center divide-y divide-white mb-8 text-white">
             <details className="py-4 w-full border-secondary">
               <summary className="text-lg font-poppins lg:text-xl 2xl:text-2xl cursor-pointer">Mengapa Laptop Saya Terasa Lambat atau Lemot?</summary>
-              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
+              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Laptop yang terasa lemot biasanya disebabkan oleh terlalu banyak aplikasi yang berjalan, kapasitas penyimpanan hampir penuh, atau spesifikasi hardware yang sudah tidak memadai untuk kebutuhan saat ini. Selain itu, virus atau malware juga bisa membuat performa laptop menurun drastis. Laptop lama yang masih menggunakan hard disk (HDD) juga cenderung lebih lambat dibandingkan laptop dengan SSD. Perawatan rutin seperti membersihkan file tidak perlu, menghapus aplikasi berat, atau upgrade hardware dapat membantu mengatasi masalah ini.</p>
             </details>
             <details className="py-4 w-full border-secondary">
               <summary className="text-lg font-poppins lg:text-xl 2xl:text-2xl cursor-pointer">Kenapa Laptop Cepat Panas?</summary>
-              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
+              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Laptop yang cepat panas umumnya disebabkan oleh debu yang menumpuk di dalam kipas dan ventilasi, sehingga sirkulasi udara menjadi buruk. Penggunaan laptop di permukaan empuk seperti kasur juga dapat menghambat pembuangan panas. Selain itu, pemakaian aplikasi berat dalam waktu lama dapat membuat prosesor bekerja lebih keras dan menghasilkan panas berlebih. Jika dibiarkan, kondisi ini dapat merusak komponen internal laptop.</p>
             </details>
             <details className="py-4 w-full border-secondary">
               <summary className="text-lg font-poppins lg:text-xl 2xl:text-2xl cursor-pointer">Mengapa Suara Kipas Laptop Sangat Kencang</summary>
-              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
+              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Suara kipas yang berisik biasanya muncul karena suhu laptop terlalu tinggi, sehingga kipas bekerja ekstra untuk mendinginkan komponen di dalamnya. Penyebab lainnya bisa karena debu yang menumpuk, kipas yang sudah aus, atau pengaturan sistem yang tidak optimal. Meski terdengar sepele, kipas yang terus bekerja keras menandakan laptop membutuhkan pengecekan lebih lanjut.</p>
             </details>
             <details className="py-4 w-full border-secondary">
               <summary className="text-lg font-poppins lg:text-xl 2xl:text-2xl cursor-pointer">Kenapa Baterai Laptop Cepat Habis?</summary>
-              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
+              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Baterai laptop yang cepat habis umumnya terjadi karena usia baterai yang sudah menurun, penggunaan aplikasi berat, atau pengaturan daya yang kurang efisien. Baterai laptop memang memiliki umur pakai, sehingga seiring waktu kemampuannya menyimpan daya akan berkurang. Jika baterai sudah sangat boros, penggantian baterai biasanya menjadi solusi terbaik.</p>
             </details>
             <details className="py-4 w-full border-secondary">
               <summary className="text-lg font-poppins lg:text-xl 2xl:text-2xl cursor-pointer">Mengapa Laptop/PC Tidak Dapat Terhubung ke Wi-Fi?</summary>
-              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
+              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Masalah koneksi Wi-Fi sering disebabkan oleh driver jaringan yang bermasalah, pengaturan sistem yang keliru, atau gangguan pada perangkat keras jaringan. Terkadang, pembaruan sistem yang tidak sempurna juga dapat memengaruhi koneksi internet. Pemeriksaan software dan hardware diperlukan untuk memastikan sumber masalahnya.</p>
             </details>
             <details className="py-4 w-full border-secondary">
               <summary className="text-lg font-poppins lg:text-xl 2xl:text-2xl cursor-pointer">Mengapa Laptop/PC Sangat Lama Untuk Dihidupkan?</summary>
-              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
+              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Laptop yang lama saat dinyalakan biasanya disebabkan oleh terlalu banyak program yang berjalan otomatis saat startup, sistem operasi yang berat, atau penggunaan HDD lama. Kondisi ini membuat laptop membutuhkan waktu lebih lama untuk siap digunakan. Membersihkan program startup atau upgrade ke SSD dapat mempercepat proses booting secara signifikan.</p>
             </details>
             <details className="py-4 w-full border-secondary">
               <summary className="text-lg font-poppins lg:text-xl 2xl:text-2xl cursor-pointer">Kenapa Laptop Tidak Bisa Mengisi Baterai?</summary>
-              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus explicabo quas provident corporis veniam rem accusamus, quisquam aliquid rerum, enim, culpa fugit maiores mollitia veritatis quia laboriosam impedit molestiae omnis cupiditate laudantium consectetur expedita quo hic! Nisi placeat sed temporibus, facilis quis explicabo, quibusdam dolor quisquam id facere autem.</p>
+              <p className="text-md lg:text-lg 2xl:text-xl text-justify px-6 mt-2">Laptop yang tidak bisa mengisi baterai dapat disebabkan oleh charger yang rusak, port charger longgar, baterai bermasalah, atau kerusakan pada komponen internal. Masalah ini sebaiknya segera ditangani karena berkaitan langsung dengan daya listrik dan keamanan perangkat.</p>
             </details>
           </div>
           <div className="flex justify-center">
-            <h3 className="font-poppins text-sm lg:text-md text-white">Punya Pertanyaan Lain? <span className="underline text-white"><Link href="/">Hubungi Kami</Link></span></h3>
+            <h3 className="font-poppins text-sm lg:text-md text-white">Punya Pertanyaan Lain? <span className="underline text-white"><Link href="/konsultasi">Konsultasi Sekarang</Link></span></h3>
           </div>
         </div>
       </section>
 
-      <section className="w-full flex items-center bg-slate-200 pt-16 pb-16">
-  <div className="container mx-auto">
-    <div className="flex justify-center items-center" data-aos="fade-up">
-      <h1 className="font-poppins text-3xl 2xl:text-4xl text-darkb border-b pb-5 border-secondary font-semibold text-center max-w-[300px] lg:max-w-none mb-8">
-        Kata Mereka Tentang LapCare
-      </h1>
-    </div>
-
-
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 justify-items-center">
-      {reviews.map((review, index) => (
-        <div
-          key={review.id ?? index}
-          className="border border-darkb rounded-xl flex items-center justify-center max-w-[330px] px-5 py-3 shadow-lg bg-white/5 backdrop-blur-md"
-          data-aos="zoom-in-up"
-        >
-          <Image
-            src={index % 2 === 0 ? userMale : userFemale}
-            alt="userLogo"
-            className="border border-secondary bg-primary rounded-full w-[65px] mr-5"
-          />
-
-          <div>
-            <h1 className="text-darkb font-poppins font-semibold text-md">
-              {review.name}
+      <section className="w-full flex items-center bg-slate-200">
+        <div className="container mx-auto">
+          <div className="flex justify-center items-center" data-aos="fade-up">
+            <h1 className="font-poppins text-3xl 2xl:text-4xl text-darkb border-b pb-5 border-secondary font-semibold text-center max-w-[300px] lg:max-w-none mb-8">
+              Kata Mereka Tentang LapCare
             </h1>
-
-            {review.job && (
-              <h2 className="text-secondary font-poppins text-sm">
-                {review.job}
-              </h2>
-            )}
-
-            <p className="text-darkb font-poppins text-sm">
-              “{review.message}”
-            </p>
+          </div>
+          <div className="overflow-hidden w-full">
+            <div className="marquee-track py-5">
+              {[...reviews, ...reviews].map((review, index) => (
+                <div
+                  key={`${review.id ?? index}-${index}`}
+                  className="min-w-[330px] mr-6 border border-darkb rounded-xl flex items-center px-5 py-3 bg-slate-100 hover:scale-[1.05] hover:bg-white transition duration-200 hover:shadow-md cursor-pointer">
+                  <Image src={index % 2 === 0 ? userMale : userFemale} alt="userLogo" width={65} height={65} className="border border-secondary bg-primary rounded-full mr-5"/>
+                  <div>
+                    <h1 className="text-darkb font-poppins font-semibold text-md">
+                      {review.name}
+                    </h1>
+                    {review.job && (
+                      <h2 className="text-secondary font-poppins text-sm">
+                        {review.job}
+                      </h2>
+                    )}
+                    <p className="text-darkb font-poppins text-sm">
+                      “{review.message}”
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      ))}
-    </div>
+      </section>
 
+      <section className="w-full flex items-center bg-slate-200 pt-16 pb-16 px-4 lg:px-6">
+        <div className="container mx-auto bg-gradient-to-b from-[#1d293d] via-[#23385e] to-[#3b82f6] border border-secondary rounded-2xl pt-12 pb-12" data-aos="fade-up">
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
 
-    {/*
-    <div className="flex items-center justify-center mt-8" data-aos="zoom-in-up">
-      <Link href="/ulasan" className="text-darkb border px-6 py-2 rounded-full font-poppins bg-transparent border-darkb shadow-md hover:shadow-2xl hover:bg-primary hover:text-white hover:border-primary transition duration-300 cursor-pointer">
-        Tulis Ulasan Anda →
-      </Link>
-    </div>
-    */}
-  </div>
-</section>
+              const res = await fetch("/api/review", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, job, message }),
+              });
 
-     <section className="w-full flex items-center bg-slate-200 pb-16 px-4 lg:px-6">
-  <div className="container mx-auto bg-gradient-to-b from-[#1d293d] via-[#23385e] to-[#3b82f6] border border-secondary rounded-2xl pt-12 pb-12" data-aos="fade-up">
-    <form
-      onSubmit={async (e) => {
-        e.preventDefault();
+              if (res.ok) {
+                toast.success("Ulasan berhasil dikirim!");
+                setName("");
+                setJob("");
+                setMessage("");
+              } else {
+                toast.error("Gagal mengirim ulasan");
+              }
+            }}
+            className="flex flex-col items-center justify-center text-center px-4"
+          >
+            <h1 className="font-poppins text-slate-100 text-2xl xl:text-3xl mb-8">
+              Pendapat kamu membantu kami meningkatkan layanan!
+            </h1>
 
-        const res = await fetch("/api/review", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, job, message }),
-        });
+            <div className="w-full flex items-center justify-center">
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
+                placeholder="Nama"
+              />
+            </div>
 
-        if (res.ok) {
-          toast.success("Ulasan berhasil dikirim!");
-          setName("");
-          setJob("");
-          setMessage("");
-        } else {
-          toast.error("Gagal mengirim ulasan");
-        }
-      }}
-      className="flex flex-col items-center justify-center text-center"
-    >
-      <h1 className="font-poppins text-slate-100 text-2xl xl:text-3xl mb-8">
-        Pendapat kamu membantu kami meningkatkan layanan!
-      </h1>
+            <div className="w-full flex items-center justify-center">
+              <input
+                type="text"
+                value={job}
+                onChange={(e) => setJob(e.target.value)}
+                className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
+                placeholder="Pekerjaan (Opsional)"
+              />
+            </div>
 
-      <div className="w-full flex items-center justify-center">
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
-          placeholder="Nama"
-        />
-      </div>
+            <div className="w-full flex items-center justify-center">
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
+                placeholder="Tulis pendapat kamu disini :D"
+              />
+            </div>
 
-      <div className="w-full flex items-center justify-center">
-        <input
-          type="text"
-          value={job}
-          onChange={(e) => setJob(e.target.value)}
-          className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
-          placeholder="Pekerjaan (Opsional)"
-        />
-      </div>
-
-      <div className="w-full flex items-center justify-center">
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-          className="border focus:outline-none px-4 py-2 font-poppins border-slate-100 rounded-full text-slate-100 w-3/4 xl:w-1/2 mb-3"
-          placeholder="Tulis pendapat kamu disini :D"
-        />
-      </div>
-
-      <div className="flex flex-col items-center justify-center">
-        <button
-          type="submit"
-          className="border rounded-full px-6 py-2 font-poppins border-primary bg-primary text-white cursor-pointer hover:bg-sky-500 hover:border-sky-500 shadow-md hover:shadow-2xl duration-300"
-        >
-          Kirim
-        </button>
-      </div>
-    </form>
-  </div>
-</section>
-
+            <div className="flex flex-col items-center justify-center">
+              <button
+                type="submit"
+                className="border rounded-full px-6 py-2 font-poppins border-primary bg-primary text-white cursor-pointer hover:bg-sky-500 hover:border-sky-500 shadow-md hover:shadow-2xl duration-300"
+              >
+                Kirim
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
 
       <FooterClient />
     </div>

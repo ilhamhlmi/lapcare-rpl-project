@@ -5,6 +5,7 @@ import NavbarClient from "../components/NavbarClient";
 import FooterClient from "../components/FooterClient";
 import Image from "next/image";
 import Hardware from "@/assets/layanan-kami/hardware-fixing.jpg"
+import Konsul from "@/assets/layanan-kami/Untitled design (6).png"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Link from "next/link";
@@ -37,7 +38,7 @@ export default function layananPage() {
                     {/* Mobile Card konsul */}
                     <div className="xl:hidden flex flex-col xl:flex-row px-6 py-6 xl:py-0 items-center justify-center text-center xl:text-start gap-8">
                         <div>
-                            <Image src={Hardware} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl" />
+                            <Image src={Konsul} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl" />
                         </div>
                         <div className="xl:w-1/2">
                             <h1 className="mb-5 className
@@ -55,7 +56,7 @@ export default function layananPage() {
                             <Link href="/konsultasi" className="border px-4 py-2 rounded-full font-poppins text-white text-md bg-primary border-primary hover:bg-sky-500 shadow-md hover:shadow-2xl transition duration-300">Konsultasi Sekarang</Link>
                         </div>
                         <div>
-                            <Image src={Hardware} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl" />
+                            <Image src={Konsul} alt="Hardware" className="w-[350px] xl:w-[500px] rounded-xl shadow-xl" />
                         </div>
                     </div>
                     {/* Mobile Card homeservice */}
