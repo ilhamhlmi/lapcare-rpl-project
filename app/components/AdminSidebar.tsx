@@ -1,13 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import toast from "react-hot-toast";
 import { usePathname } from "next/navigation";
 
 export default function AdminSidebar() {
     const pathname = usePathname()
 
       const handleLogout = async () => {
-    await fetch("/api/logout", {
+    await fetch("/api/logoutAdmin", {
       method: "POST",
       credentials: "include",
     });

@@ -3,13 +3,14 @@ import { NextResponse } from "next/server";
 export async function POST() {
   const res = NextResponse.json({ success: true });
 
-  res.cookies.set("user_id", "", {
-    path: "/",
+  // HAPUS SESSION ADMIN SAJA
+  res.cookies.set("admin_id", "", {
+    path: "/admin",
     maxAge: 0,
   });
 
-  res.cookies.set("user_role", "", {
-    path: "/",
+  res.cookies.set("admin_role", "", {
+    path: "/admin",
     maxAge: 0,
   });
 

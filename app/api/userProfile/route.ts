@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { db } from "../../../lib/db"; 
+import { db } from "../../../lib/db";
 
 export async function GET() {
   const cookieStore = await cookies();
@@ -8,24 +8,22 @@ export async function GET() {
 
   if (!userId) {
     return NextResponse.json(
-      { error: "Not logged in" },
+      { error: "Not logged in as user" },
       { status: 401 }
     );
   }
 
   const [rows]: any = await db.query(
-
-    "SELECT id, username, email, no_tlp, password FROM user WHERE id = ?",
+    "SELECT id, username, email, no_tlp, password FROM user WHERE id = ? AND role = 'user'",
     [userId]
   );
 
   if (!rows || rows.length === 0) {
     return NextResponse.json(
-      { error: "User not found" },
-      { status: 404 }
+      { error: "User not found or not authorized" },
+      { status: 403 }
     );
   }
 
- 
   return NextResponse.json(rows[0]);
 }

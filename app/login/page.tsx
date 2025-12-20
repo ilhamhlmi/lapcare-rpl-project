@@ -16,7 +16,6 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
 
   const router = useRouter()
-
   useEffect(() => {
     AOS.init({
       duration: 800,

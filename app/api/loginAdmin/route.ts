@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const { username, password } = await req.json();
 
+  // VALIDASI INPUT
   if (!username || !password) {
     return NextResponse.json(
       { message: "Username dan password wajib diisi" },
@@ -11,21 +12,22 @@ export async function POST(req: Request) {
     );
   }
 
-  const [users]: any = await db.query(
+  // CEK ADMIN
+  const [admins]: any = await db.query(
     "SELECT * FROM `user` WHERE username = ? AND role = 'admin'",
     [username]
   );
 
-  if (users.length === 0) {
+  if (admins.length === 0) {
     return NextResponse.json(
       { message: "Admin tidak ditemukan" },
       { status: 404 }
     );
   }
 
-  const admin = users[0];
+  const admin = admins[0];
 
-  // PLAIN CHECK — SESUAI BACKEND KAMU
+  // CEK PASSWORD (plain text)
   if (String(password).trim() !== String(admin.password).trim()) {
     return NextResponse.json(
       { message: "Password salah" },
@@ -33,20 +35,22 @@ export async function POST(req: Request) {
     );
   }
 
+  // RESPONSE LOGIN
   const response = NextResponse.json({
     success: true,
     message: "Login admin berhasil",
   });
 
-  // COOKIE KHUSUS ADMIN (TIDAK TABRAKAN DENGAN USER)
+  // COOKIE ADMIN
   response.cookies.set("admin_id", String(admin.id), {
     httpOnly: false,
-    path: "/admin",
+    path: "/admin",   // path khusus admin
     sameSite: "lax",
-    maxAge: 60 * 60 * 24,
+    maxAge: 60 * 60 * 24, // 1 hari
   });
 
-  response.cookies.set("adminLogin", "true", {
+  // ROLE ADMIN TERPISAH
+  response.cookies.set("admin_role", "admin", {
     httpOnly: false,
     path: "/admin",
     sameSite: "lax",
