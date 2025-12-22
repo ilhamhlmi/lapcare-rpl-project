@@ -4,50 +4,62 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // SESSION USER
+  //  USER SESSION 
   const userId = request.cookies.get("user_id")?.value;
   const userRole = request.cookies.get("user_role")?.value;
 
-  // SESSION ADMIN
+  //  ADMIN SESSION 
   const adminId = request.cookies.get("admin_id")?.value;
   const adminRole = request.cookies.get("admin_role")?.value;
 
-  /*USER PROTECTED ROUTES */
-  const userProtectedRoutes = [
+  // TEKNISI SESSION 
+  const teknisiId = request.cookies.get("teknisi_id")?.value;
+  const teknisiRole = request.cookies.get("teknisi_role")?.value;
+
+  //  USER PROTECTED 
+  const userRoutes = [
     "/guide",
     "/konsultasi",
     "/userProfile",
     "/homeService",
   ];
 
-  if (userProtectedRoutes.some((route) => pathname.startsWith(route))) {
+  if (userRoutes.some(r => pathname === r || pathname.startsWith(r + "/"))) {
     if (!userId || userRole !== "user") {
       return NextResponse.redirect(new URL("/login", request.url));
     }
   }
 
-  // User login page → redirect jika sudah login
   if (pathname === "/login" && userId && userRole === "user") {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  /*ADMIN ROUTES */
-  if (pathname.startsWith("/admin")) {
-    // Admin login page boleh diakses
+  //  ADMIN
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
     if (pathname === "/admin/login") {
       return NextResponse.next();
     }
 
-    // Selain login → wajib login admin
     if (!adminId || adminRole !== "admin") {
       return NextResponse.redirect(new URL("/admin/login", request.url));
+    }
+  }
+
+  //  TEKNISI 
+  if (pathname === "/teknisi" || pathname.startsWith("/teknisi/")) {
+    if (pathname === "/teknisi/login") {
+      return NextResponse.next();
+    }
+
+    if (!teknisiId || teknisiRole !== "teknisi") {
+      return NextResponse.redirect(new URL("/teknisi/login", request.url));
     }
   }
 
   return NextResponse.next();
 }
 
-/*MATCHER */
+//  MATCHER 
 export const config = {
   matcher: [
     "/guide/:path*",
@@ -56,5 +68,6 @@ export const config = {
     "/userProfile/:path*",
     "/login",
     "/admin/:path*",
+    "/teknisi/:path*",
   ],
 };
